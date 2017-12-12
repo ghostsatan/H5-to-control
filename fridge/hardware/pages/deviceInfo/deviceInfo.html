@@ -1,0 +1,25 @@
+<div class="WAll ListBlock AccordionList noBefore">
+    <!-- 产品信息 -->
+    <div class="AccordionItem ListItem " translate-namespace="deviceInfo">
+        <div class="backgrouddLine"></div><!-- 中间隔断 -->
+        <a href="javascript:;" class="ItemLink ItemCon">
+            <div class="ItemInner ">
+                <div class="ItemTitle AccordionItemToggle" translate=".lang_deviceInfo"></div>
+            </div>
+        </a>
+        <div class="AccordionItemCon">
+            <div class="ListBlock">
+                <ul ng-class="{isownerUl: !isowner}">
+                    <li class="ListItem" ng-click="Load.editDeviceInfo()">
+                        <div class="ItemLink ItemCon" ng-class="{InkRipple:isowner}">
+                            <div class="ItemInner">
+                                <div class="ItemTitle" translate=".lang_deviceName"></div>
+                                <div class="ItemAfter" ng-bind="deviceName"></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

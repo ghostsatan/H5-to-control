@@ -1,0 +1,16 @@
+<html>
+<head>
+<script>
+var str=location.href;
+var num=str.indexOf("?");
+if(num != -1){
+	str=str.substr(num);
+}else{
+	str = "";
+}
+window.location = "hardware/pages/FRIDGE/index.html" + str;
+</script>
+</head>
+<body>
+</body>
+</html>

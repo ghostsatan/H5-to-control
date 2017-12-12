@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="Mobile">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' *;script-src 'self' 'unsafe-inline' *; style-src 'self' 'unsafe-inline' *; media-src *">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title></title>
+<!-- 公共基础样式 -->
+<link rel="stylesheet" href="../../src/style/kelat.css" media="all"/>
+<!-- 扩展样式 -->
+<link rel="stylesheet" href="theme.css" media="all"/>
+<!-- 开发样式样式 -->
+ <!-- <link href="index/styles/common.css" rel="stylesheet" type="text/css">  -->
+
+</head>
+
+<body class="BodyBG">
+    <!-- 状态栏覆盖全屏幕模式 (PhoneGap) -->
+    <div class="StatusbarOverlay"></div>
+    <!-- 面板覆盖 -->
+    <div class="PanelOverlay"></div>
+	<div class="Wrapper">
+		<div class="WrapBox" id="WrapperArea">
+			<!--header-->
+			<div class="" ui-view="DeviceHeader"></div>
+			<!--PageBody-->
+			<div class="WrapContent" ui-view="WrapContent"></div>
+			<!--设备信息-->
+			<div class="" ui-view="DeviceInfo"></div>
+			<!--PageBody end-->
+		</div>
+	</div>
+<script src="../../src/script/_lib/requireJS/require.js" data-main="script/main" defer async="true" ></script>
+
+</body>
+</html>

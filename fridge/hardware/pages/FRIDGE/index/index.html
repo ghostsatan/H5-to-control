@@ -1,0 +1,188 @@
+
+<div class="WAll Fridge">
+    <!-- 运行、告警信息 -->
+    <!-- 运行状态在无报警信息情况下显示 -->
+    <div class="messageInfoDiv" translate={{runningStatus}} ng-if="!alarmsInfoNum" ng-show="runningStatus"></div>
+    <div class="errorInfoDiv" ng-if="alarmsInfoNum">
+        <div translate-namespace="alarms">
+            <span translate=".lang_recived"></span>
+            <span translate={{alarmsInfo}}></span>
+            <span translate=".lang_andsoon"></span>
+            <span ng-bind="alarmsInfoNum"></span>
+            <span translate=".lang_alarmInfo"></span>
+        </div>
+        <div translate-namespace="alarms">
+            <span class='more_alarm_info' translate=".lang_moreinfo" ng-click="openModeWin();"></span>
+        </div>
+    </div>
+<div ng-class="{Gray:!isSwitch}">
+<section id="main" class="main">
+    <div class="cdevice-fridge">
+        <div class="fridge"></div>
+        <div class="text">
+            <h4>海尔冰箱
+            <span>
+          <!--   <div class="location"></div>
+        <label id="dingwei">上海</label> -->
+        </span></h4>
+
+            <div class="fridgeno">BCD-610WDCZU1</div>
+            <div class="device-status"><a>{{wifiSwitch}}</a></div>  
+            <div class="device-control">
+                <ul>
+                    <li> 
+                    <span ng-bind="refrigeratorTemperature"></span><i>℃</i>
+
+                        <p>冷藏区</p>
+                    </li>
+                    <li class="line"></li>
+                    <li> <span  ng-bind = "vtRoomTemperature"></span><i>℃</i>
+
+                        <p>变温区</p>
+                    </li>
+                    <li class="line"></li>
+                    <li> <span ng-bind = "freezerTemperature"></span><i>℃</i>
+
+                        <p>冷冻区</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+   <div class="vdevice-control">
+        <ul>
+            <li ng-class="{Gray: !refrigeratorTargetTemperature_Writeable}">
+                <p class="control-icon">
+                <div class="refrigerator"></div></p>
+
+                <p>冷藏区</p>
+
+                <div class="control-btn">
+                  <a href="javascript:;" ng-click="minusTemp('1')" class="plus_btn"><i class="Iminus"></i></a>
+                    <span class="leng2" ng-bind="refrigeratorTargetTemperature">3</span>℃
+                      <a href="javascript:;" ng-click="plusTemp('1')" class="plus_btn"><i class = "Iplus"></i></a>
+                </div>
+            </li>
+            <li ng-class="{Gray: !vtRoomTargetTemperature_Writeable }"> 
+                <p class="control-icon">
+                <div class="vtRoom"></div></p>
+
+                <p>变温区</p>
+                <div class="control-btn">
+                  <a href="javascript:;" ng-click="minusTemp('3')" class="plus_btn"><i class="Iminus"></i></a>
+                    <span class="leng2" ng-bind="vtRoomTargetTemperature">5</span>℃
+                      <a href="javascript:;" ng-click="plusTemp('3')" class="plus_btn"><i class = "Iplus"></i></a>
+                </div>
+            </li>
+            <li ng-class="{Gray: !freezerTargetTemperature_Writeable }">
+                <p class="control-icon"><div class="freezer"></div></p>
+
+                <p>冷冻区</p>
+                <div class="control-btn">
+                  <a href="javascript:;" ng-click="minusTemp('2')" class="plus_btn"><i class="Iminus"></i></a>
+                    <span class="leng2" ng-bind="freezerTargetTemperature">22</span>℃
+                      <a href="javascript:;" ng-click="plusTemp('2')" class="plus_btn"><i class = "Iplus"></i></a>
+                </div>
+            </li>
+            <li >
+                <p class="control-icon">
+                  <div ng-class="{active:quickFreezingMode,Gray:!quickFreezingMode_Writeable}" >
+                    <div ng-click="setMode('quickFreezingMode')" class="IquickFreezingMode">
+                        
+                    </div>
+                    </div>
+                  </p>
+
+                <p>速冻<br/>
+                   <!--  <small>开启</small> -->
+                </p>
+            </li>
+            <li>
+                <p class="control-icon">
+                  <div ng-class="{active:quickRefrigeratingMode,Gray:!quickRefrigeratingMode_Writeable}">
+                    <div ng-click="setMode('quickRefrigeratingMode')" class="IquickRefrigeratingMode">
+                        
+                    </div>
+                    </div>
+                  </p>
+
+                <p>速冷<br/>
+                    <!-- <small>开启</small> -->
+                </p>
+            </li>
+            <li >
+                <p class="control-icon">
+                  <div ng-class="{active:intelligenceMode,Gray:!intelligenceMode_Writeable}" class="xx">
+                    <div ng-click="setMode('intelligenceMode')" class="IintelligenceMode">
+                        
+                    </div>
+                    </div>
+                  </p>
+
+                <p>智能<br/>
+                 <!--    <small>开启</small> -->
+                </p>
+            </li>
+            <li >
+               <p class="control-icon">
+                  <div ng-class="{active:freshMode,Gray:!freshMode_Writeable}">
+                    <div ng-click="setMode('freshMode')" class="IFreshMode">
+                        
+                    </div>
+                    </div>
+                  </p>
+
+                <p>珍品<br/>
+                    
+                </p>
+            </li>
+            <li >
+               <p class="control-icon">
+                  <div ng-class="{active:icemakeMode,Gray:!freshMode_Writeable}">
+                    <div ng-click="setMode('icemakeMode')" class="icemakeMode">
+                        
+                    </div>
+                    </div>
+                  </p>
+
+                <p>制冰<br/>
+                    
+                </p>
+            </li>
+            <li >
+               <p class="control-icon">
+                  <div ng-class="{active:supercoolMode,Gray:!supercoolMode_Writeable}">
+                    <div ng-click="setMode('supercoolMode')" class="supercoolMode">
+                        
+                    </div>
+                    </div>
+                  </p>
+
+                <p>急冻<br/>
+                    
+                </p>
+            </li>
+            
+        </ul>
+    </div>
+</section>
+</div>
+<div id="alarms_info">
+  <div class="ModalPopoverInner">
+    <div class="modal_title" translate-namespace="alarms">
+        <h3 translate=".lang_alarmInformation"></h3>
+        <p><label translate=".lang_find"></label><label class="modal_margin_label" ng-bind="alarmsInfoNum"></label><label translate=".lang_resolveText"></label></p>
+    </div>
+    <div class="modal_content">
+        <ul translate-namespace="alarms">
+            <li ng-repeat="item in alarmsArr track by $index">
+                <span ng-bind={{$index+1}}></span>
+                <span translate=".lang_alarmDescribe"></span>
+                <span class='modal_red_text' translate={{"."+item.name}}></span>
+            </li>
+        </ul>
+    </div>
+  </div>
+</div>
+</div>
+
